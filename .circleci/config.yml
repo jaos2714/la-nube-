@@ -1,0 +1,23 @@
+static int v , e // vertices , aristas
+static int MAX=100000;
+static Arraylist<integer> ady[] = new Arraylist[MAX]; //lista de adyacencia
+static long distance[] = new long[MAX];
+
+//recibe el nodo inicial
+static void bfs(int s){
+    Queve<integer> q = new linkendlist<integer>();
+    q.add(s);
+    distance[s] = 0;
+    int actual, i, next;
+
+    while(!q.isEmpty() ){
+        actual = q.poll();
+        for(i=0; i<ady[actual].size(); i++){
+            next = ady[actual].get(i);
+            if( distance[next] == -1){
+                distance[next] = distance[actual] +1;
+                q.add(next);
+            }
+        }
+    }
+}
